@@ -1,0 +1,17 @@
+services:
+  quotes:
+    build: .
+    init: true
+    ports:
+      - "127.0.0.1:${PORT:-3000}:3000"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3000
+      DATA_DIR: /app/data
+      APP_PASSWORD: ${APP_PASSWORD:?请先在 .env 中设置至少 12 位的 APP_PASSWORD}
+      SEED_DEMO: ${SEED_DEMO:-true}
+    volumes:
+      - quotes-data:/app/data
+    restart: unless-stopped
+volumes:
+  quotes-data:

@@ -1,0 +1,25 @@
+{
+  "name": "merchant-quotes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "简单报价：单商家手机报价、中文 PDF 与跟进工具",
+  "license": "MIT",
+  "engines": { "node": ">=24 <25" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "dev": "node --env-file-if-exists=.env --watch src/server.js",
+    "test": "node --test tests/*.test.js",
+    "test:e2e": "playwright test",
+    "licenses": "node scripts/licenses.js"
+  },
+  "dependencies": {
+    "@pdfme/common": "6.2.6",
+    "@pdfme/generator": "6.2.6",
+    "@pdfme/schemas": "6.2.6",
+    "better-sqlite3": "13.0.3",
+    "express": "5.3.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": { "@playwright/test": "1.64.1" }
+}

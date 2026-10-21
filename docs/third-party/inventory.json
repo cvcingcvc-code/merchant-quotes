@@ -1,0 +1,1259 @@
+[
+  {
+    "name": "@pdf-lib/standard-fonts",
+    "version": "1.0.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "https://github.com/Hopding/standard-fonts.git",
+    "author": "Andrew Dillon <andrew.dillon.j@gmail.com>",
+    "preservedFiles": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "name": "@pdf-lib/upng",
+    "version": "1.0.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "https://github.com/Hopding/upng",
+    "author": "photopea (https://github.com/photopea)",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "@pdfme/common",
+    "version": "6.2.6",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git@github.com:pdfme/pdfme.git",
+    "author": "hand-dot",
+    "preservedFiles": [
+      "README.md"
+    ]
+  },
+  {
+    "name": "@pdfme/generator",
+    "version": "6.2.6",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git@github.com:pdfme/pdfme.git",
+    "author": "hand-dot",
+    "preservedFiles": [
+      "README.md"
+    ]
+  },
+  {
+    "name": "@pdfme/pdf-lib",
+    "version": "6.2.6",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git@github.com:pdfme/pdfme.git",
+    "author": "hand-dot",
+    "preservedFiles": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "name": "@pdfme/schemas",
+    "version": "6.2.6",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git@github.com:pdfme/pdfme.git",
+    "author": "hand-dot",
+    "preservedFiles": [
+      "README.md"
+    ]
+  },
+  {
+    "name": "@playwright/test",
+    "version": "1.64.1",
+    "license": "Apache-2.0",
+    "scope": "development",
+    "repository": "git+https://github.com/microsoft/playwright.git",
+    "author": {
+      "name": "Microsoft Corporation"
+    },
+    "preservedFiles": [
+      "LICENSE",
+      "NOTICE"
+    ]
+  },
+  {
+    "name": "@swc/helpers",
+    "version": "0.5.23",
+    "license": "Apache-2.0",
+    "scope": "runtime",
+    "repository": "git+https://github.com/swc-project/swc.git",
+    "author": "강동윤 <kdy1997.dev@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "@types/trusted-types",
+    "version": "2.0.7",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "accepts",
+    "version": "2.0.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/accepts",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "acorn",
+    "version": "8.19.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/acornjs/acorn.git",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "air-datepicker",
+    "version": "3.6.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/t1m0n/air-datepicker.git",
+    "author": "t1m0n <t1m0n.tr@gmail.com>",
+    "preservedFiles": [
+      "README.md"
+    ]
+  },
+  {
+    "name": "base64-js",
+    "version": "1.5.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git://github.com/beatgammit/base64-js.git",
+    "author": "T. Jameson Little <t.jameson.little@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "better-sqlite3",
+    "version": "13.0.3",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git://github.com/WiseLibs/better-sqlite3.git",
+    "author": "Joshua Wise <joshuathomaswise@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "body-parser",
+    "version": "2.3.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "expressjs/body-parser",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "brotli",
+    "version": "1.3.3",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "https://github.com/devongovett/brotli.js.git",
+    "author": "Devon Govett <devongovett@gmail.com>",
+    "preservedFiles": [
+      "readme.md"
+    ]
+  },
+  {
+    "name": "buffer",
+    "version": "6.0.3",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git://github.com/feross/buffer.git",
+    "author": {
+      "name": "Feross Aboukhadijeh",
+      "email": "feross@feross.org",
+      "url": "https://feross.org"
+    },
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "bwip-js",
+    "version": "4.11.4",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "https://github.com/metafloor/bwip-js.git",
+    "author": "Mark Warren <mwarren@metafloor.com>",
+    "preservedFiles": [
+      "LICENSE",
+      "LICENSE.CANVASTOBLOB",
+      "LICENSE.FILESAVER",
+      "LICENSE.INCONSOLATA"
+    ]
+  },
+  {
+    "name": "bytes",
+    "version": "3.1.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "visionmedia/bytes.js",
+    "author": "TJ Holowaychuk <tj@vision-media.ca> (http://tjholowaychuk.com)",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "call-bind-apply-helpers",
+    "version": "1.0.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/ljharb/call-bind-apply-helpers.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "call-bound",
+    "version": "1.0.4",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/ljharb/call-bound.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "clone",
+    "version": "2.1.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git://github.com/pvorb/node-clone.git",
+    "author": "Paul Vorbach <paul@vorba.ch> (http://paul.vorba.ch/)",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "color",
+    "version": "5.0.3",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "Qix-/color",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "color-convert",
+    "version": "3.1.3",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "Qix-/color-convert",
+    "author": "Josh Junon <josh@junon.me>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "color-name",
+    "version": "2.1.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/colorjs/color-name.git",
+    "author": "Dmitry Iv <dfcreative@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "color-string",
+    "version": "2.1.4",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "Qix-/color-string",
+    "author": "Josh Junon (https://github.com/qix-)",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "content-disposition",
+    "version": "2.0.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/content-disposition",
+    "author": "Douglas Christopher Wilson <doug@somethingdoug.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "content-type",
+    "version": "2.1.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/content-type",
+    "author": "Douglas Christopher Wilson <doug@somethingdoug.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "cookie",
+    "version": "0.7.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/cookie",
+    "author": "Roman Shtylman <shtylman@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "cookie-signature",
+    "version": "1.2.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "https://github.com/visionmedia/node-cookie-signature.git",
+    "author": "TJ Holowaychuk <tj@learnboost.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "date-fns",
+    "version": "4.4.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "https://github.com/date-fns/date-fns",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "name": "debug",
+    "version": "4.4.3",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git://github.com/debug-js/debug.git",
+    "author": "Josh Junon (https://github.com/qix-)",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "depd",
+    "version": "2.0.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "dougwilson/nodejs-depd",
+    "author": "Douglas Christopher Wilson <doug@somethingdoug.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "dfa",
+    "version": "1.2.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+ssh://git@github.com/devongovett/dfa.git",
+    "author": "Devon Govett <devongovett@gmail.com>",
+    "preservedFiles": [
+      "README.md"
+    ]
+  },
+  {
+    "name": "dompurify",
+    "version": "3.4.17",
+    "license": "(MPL-2.0 OR Apache-2.0)",
+    "scope": "runtime",
+    "repository": "git://github.com/cure53/DOMPurify.git",
+    "author": "Dr.-Ing. Mario Heiderich, Cure53 <mario@cure53.de> (https://cure53.de/)",
+    "preservedFiles": [
+      "LICENSE",
+      "LICENSE-MPL"
+    ]
+  },
+  {
+    "name": "dunder-proto",
+    "version": "1.0.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/es-shims/dunder-proto.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "ee-first",
+    "version": "1.1.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jonathanong/ee-first",
+    "author": {
+      "name": "Jonathan Ong",
+      "email": "me@jongleberry.com",
+      "url": "http://jongleberry.com",
+      "twitter": "https://twitter.com/jongleberry"
+    },
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "encodeurl",
+    "version": "2.0.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "pillarjs/encodeurl",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "es-define-property",
+    "version": "1.0.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/ljharb/es-define-property.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "es-errors",
+    "version": "1.3.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/ljharb/es-errors.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "es-object-atoms",
+    "version": "1.1.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/ljharb/es-object-atoms.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "escape-html",
+    "version": "1.0.3",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "component/escape-html",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "etag",
+    "version": "1.8.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/etag",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "express",
+    "version": "5.3.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "expressjs/express",
+    "author": "TJ Holowaychuk <tj@vision-media.ca>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "fast-deep-equal",
+    "version": "3.1.3",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/epoberezkin/fast-deep-equal.git",
+    "author": "Evgeny Poberezkin",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "finalhandler",
+    "version": "2.1.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "pillarjs/finalhandler",
+    "author": "Douglas Christopher Wilson <doug@somethingdoug.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "fontkit",
+    "version": "2.0.4",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git://github.com/foliojs/fontkit.git",
+    "author": "Devon Govett <devongovett@gmail.com>",
+    "preservedFiles": [
+      "README.md"
+    ]
+  },
+  {
+    "name": "forwarded",
+    "version": "0.2.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/forwarded",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "fresh",
+    "version": "2.0.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/fresh",
+    "author": "TJ Holowaychuk <tj@vision-media.ca> (http://tjholowaychuk.com)",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "function-bind",
+    "version": "1.1.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "https://github.com/Raynos/function-bind.git",
+    "author": "Raynos <raynos2@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "get-intrinsic",
+    "version": "1.3.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/ljharb/get-intrinsic.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "get-proto",
+    "version": "1.0.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/ljharb/get-proto.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "gopd",
+    "version": "1.2.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/ljharb/gopd.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "has-symbols",
+    "version": "1.1.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git://github.com/inspect-js/has-symbols.git",
+    "author": {
+      "name": "Jordan Harband",
+      "email": "ljharb@gmail.com",
+      "url": "http://ljharb.codes"
+    },
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "hasown",
+    "version": "2.0.4",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/inspect-js/hasOwn.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "html-entities",
+    "version": "2.6.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "https://github.com/mdevils/html-entities.git",
+    "author": {
+      "name": "Marat Dulin",
+      "email": "mdevils@yandex.ru"
+    },
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "http-errors",
+    "version": "2.0.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/http-errors",
+    "author": "Jonathan Ong <me@jongleberry.com> (http://jongleberry.com)",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "iconv-lite",
+    "version": "0.7.3",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "https://github.com/pillarjs/iconv-lite.git",
+    "author": "Alexander Shtuchkin <ashtuchkin@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "ieee754",
+    "version": "1.2.1",
+    "license": "BSD-3-Clause",
+    "scope": "runtime",
+    "repository": "git://github.com/feross/ieee754.git",
+    "author": {
+      "name": "Feross Aboukhadijeh",
+      "email": "feross@feross.org",
+      "url": "https://feross.org"
+    },
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "inherits",
+    "version": "2.0.4",
+    "license": "ISC",
+    "scope": "runtime",
+    "repository": "git://github.com/isaacs/inherits",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "ipaddr.js",
+    "version": "1.9.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git://github.com/whitequark/ipaddr.js",
+    "author": "whitequark <whitequark@whitequark.org>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "is-promise",
+    "version": "4.0.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "https://github.com/then/is-promise.git",
+    "author": "ForbesLindesay",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "jpeg-js",
+    "version": "0.4.4",
+    "license": "BSD-3-Clause",
+    "scope": "runtime",
+    "repository": "https://github.com/eugeneware/jpeg-js",
+    "author": "Eugene Ware <eugene@noblesamurai.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "lucide",
+    "version": "1.60.0",
+    "license": "ISC",
+    "scope": "runtime",
+    "repository": "https://github.com/lucide-icons/lucide.git",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "math-intrinsics",
+    "version": "1.1.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/es-shims/math-intrinsics.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "media-typer",
+    "version": "1.1.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/media-typer",
+    "author": "Douglas Christopher Wilson <doug@somethingdoug.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "merge-descriptors",
+    "version": "2.0.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "sindresorhus/merge-descriptors",
+    "author": "",
+    "preservedFiles": [
+      "license"
+    ]
+  },
+  {
+    "name": "mime-db",
+    "version": "1.54.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/mime-db",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "mime-types",
+    "version": "3.0.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/mime-types",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "ms",
+    "version": "2.1.3",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "vercel/ms",
+    "author": "",
+    "preservedFiles": [
+      "license.md"
+    ]
+  },
+  {
+    "name": "negotiator",
+    "version": "1.1.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/negotiator",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "node-addon-api",
+    "version": "8.9.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git://github.com/nodejs/node-addon-api.git",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "name": "node-html-better-parser",
+    "version": "1.5.9",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "https://github.com/Sharcoux/node-html-parser.git",
+    "author": "Xiaoyi Shi <ashi009@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "object-inspect",
+    "version": "1.13.4",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git://github.com/inspect-js/object-inspect.git",
+    "author": {
+      "name": "James Halliday",
+      "email": "mail@substack.net",
+      "url": "http://substack.net"
+    },
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "on-finished",
+    "version": "2.4.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/on-finished",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "once",
+    "version": "1.4.0",
+    "license": "ISC",
+    "scope": "runtime",
+    "repository": "git://github.com/isaacs/once",
+    "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "pako",
+    "version": "1.0.11",
+    "license": "(MIT AND Zlib)",
+    "scope": "runtime",
+    "repository": "nodeca/pako",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "pako",
+    "version": "1.0.11",
+    "license": "(MIT AND Zlib)",
+    "scope": "runtime",
+    "repository": "nodeca/pako",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "pako",
+    "version": "3.0.2",
+    "license": "(MIT AND Zlib)",
+    "scope": "runtime",
+    "repository": "nodeca/pako",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "pako",
+    "version": "0.2.9",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "nodeca/pako",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "parseurl",
+    "version": "1.3.3",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "pillarjs/parseurl",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "path-to-regexp",
+    "version": "8.4.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "https://github.com/pillarjs/path-to-regexp.git",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "playwright",
+    "version": "1.64.1",
+    "license": "Apache-2.0",
+    "scope": "development",
+    "repository": "git+https://github.com/microsoft/playwright.git",
+    "author": {
+      "name": "Microsoft Corporation"
+    },
+    "preservedFiles": [
+      "LICENSE",
+      "NOTICE",
+      "ThirdPartyNotices.txt"
+    ]
+  },
+  {
+    "name": "playwright-core",
+    "version": "1.64.1",
+    "license": "Apache-2.0",
+    "scope": "development",
+    "repository": "git+https://github.com/microsoft/playwright.git",
+    "author": {
+      "name": "Microsoft Corporation"
+    },
+    "preservedFiles": [
+      "LICENSE",
+      "NOTICE",
+      "ThirdPartyNotices.txt"
+    ]
+  },
+  {
+    "name": "proxy-addr",
+    "version": "2.0.8",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/proxy-addr",
+    "author": "Douglas Christopher Wilson <doug@somethingdoug.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "qs",
+    "version": "6.16.1",
+    "license": "BSD-3-Clause",
+    "scope": "runtime",
+    "repository": "https://github.com/ljharb/qs.git",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "name": "range-parser",
+    "version": "1.3.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/range-parser",
+    "author": "TJ Holowaychuk <tj@vision-media.ca> (http://tjholowaychuk.com)",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "raw-body",
+    "version": "3.0.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "stream-utils/raw-body",
+    "author": "Jonathan Ong <me@jongleberry.com> (http://jongleberry.com)",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "restructure",
+    "version": "3.0.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git://github.com/devongovett/restructure.git",
+    "author": "Devon Govett <devongovett@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "router",
+    "version": "2.2.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "pillarjs/router",
+    "author": "Douglas Christopher Wilson <doug@somethingdoug.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "safer-buffer",
+    "version": "2.1.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/ChALkeR/safer-buffer.git",
+    "author": {
+      "name": "Nikita Skovoroda",
+      "email": "chalkerx@gmail.com",
+      "url": "https://github.com/ChALkeR"
+    },
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "send",
+    "version": "1.2.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "pillarjs/send",
+    "author": "TJ Holowaychuk <tj@vision-media.ca>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "serve-static",
+    "version": "2.2.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "expressjs/serve-static",
+    "author": "Douglas Christopher Wilson <doug@somethingdoug.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "setprototypeof",
+    "version": "1.2.0",
+    "license": "ISC",
+    "scope": "runtime",
+    "repository": "https://github.com/wesleytodd/setprototypeof.git",
+    "author": "Wes Todd",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "side-channel",
+    "version": "1.1.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/ljharb/side-channel.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "side-channel-list",
+    "version": "1.0.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/ljharb/side-channel-list.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "side-channel-map",
+    "version": "1.0.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/ljharb/side-channel-map.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "side-channel-weakmap",
+    "version": "1.0.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/ljharb/side-channel-weakmap.git",
+    "author": "Jordan Harband <ljharb@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "signature_pad",
+    "version": "5.1.4",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "https://github.com/szimek/signature_pad.git",
+    "author": {
+      "name": "Szymon Nowak",
+      "email": "szimek@gmail.com",
+      "url": "https://github.com/szimek"
+    },
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "statuses",
+    "version": "2.0.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/statuses",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "tiny-inflate",
+    "version": "1.0.3",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git://github.com/devongovett/tiny-inflate.git",
+    "author": "Devon Govett <devongovett@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "toidentifier",
+    "version": "1.0.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "component/toidentifier",
+    "author": "Douglas Christopher Wilson <doug@somethingdoug.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "tslib",
+    "version": "2.8.1",
+    "license": "0BSD",
+    "scope": "runtime",
+    "repository": "https://github.com/Microsoft/tslib.git",
+    "author": "Microsoft Corp.",
+    "preservedFiles": [
+      "LICENSE.txt"
+    ]
+  },
+  {
+    "name": "type-is",
+    "version": "2.1.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/type-is",
+    "author": "",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "unicode-properties",
+    "version": "1.4.1",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git://github.com/devongovett/unicode-properties.git",
+    "author": "Devon Govett <devongovett@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "unicode-trie",
+    "version": "2.0.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git://github.com/devongovett/unicode-trie.git",
+    "author": "Devon Govett <devongovett@gmail.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "unpipe",
+    "version": "1.0.0",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "stream-utils/unpipe",
+    "author": "Douglas Christopher Wilson <doug@somethingdoug.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "vary",
+    "version": "1.1.2",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "jshttp/vary",
+    "author": "Douglas Christopher Wilson <doug@somethingdoug.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "wrappy",
+    "version": "1.0.2",
+    "license": "ISC",
+    "scope": "runtime",
+    "repository": "https://github.com/npm/wrappy",
+    "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  },
+  {
+    "name": "zod",
+    "version": "4.6.7",
+    "license": "MIT",
+    "scope": "runtime",
+    "repository": "git+https://github.com/colinhacks/zod.git",
+    "author": "Colin McDonnell <zod@colinhacks.com>",
+    "preservedFiles": [
+      "LICENSE"
+    ]
+  }
+]

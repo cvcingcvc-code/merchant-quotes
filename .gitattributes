@@ -1,0 +1,7 @@
+* text=auto
+fonts/*.otf binary
+docs/evidence/*.pdf binary
+docs/evidence/*.png binary
+# Preserve the exact upstream notices and PDF text output, including whitespace.
+docs/third-party/** -text -whitespace
+docs/evidence/demo-pdf-text.txt -text -whitespace

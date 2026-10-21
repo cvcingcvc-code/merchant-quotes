@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-21",
+  "timezone": "Asia/Shanghai",
+  "unitAndApi": {
+    "passed": 8,
+    "failed": 0,
+    "command": "npm test"
+  },
+  "mobileEndToEnd": {
+    "passed": 3,
+    "failed": 0,
+    "command": "npm run test:e2e",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "actualProcessRestart": true,
+    "expectedTotalCents": 20978,
+    "chinesePdfTextVerified": true,
+    "backupRestoreVerified": true
+  },
+  "responsiveWidths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "pageErrors": 0,
+  "licensePackagesChecked": 110,
+  "productionAuditVulnerabilities": 0,
+  "longPdf": {
+    "items": 100,
+    "pages": 12,
+    "lastItemTotalAndTermsExtracted": true
+  },
+  "docker": {
+    "built": false,
+    "reason": "Sandbox cannot access Docker daemon socket"
+  },
+  "productionPublished": false
+}
