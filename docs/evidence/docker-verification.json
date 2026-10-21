@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-21",
+  "imageTag": "merchant-quotes:demo-validated",
+  "built": true,
+  "containerStarted": true,
+  "nonRootUser": "node",
+  "unauthenticatedStatus": 401,
+  "seedCustomers": 5,
+  "seedQuotes": 5,
+  "totalCents": 20978,
+  "chinesePdfVerified": true,
+  "authenticatedHealthcheckPassed": true,
+  "portBeforeRestart": "http://127.0.0.1:32770",
+  "portAfterRestart": "http://127.0.0.1:32771",
+  "restartPersistencePassed": true,
+  "recreateWithSameVolumePassed": true,
+  "imageId": "sha256:4976c47ec9f52784654194879890ff851c5f2a013c4b1bc3aa0849aa0700fd75",
+  "runtimeNodeVersion": "v24.19.0",
+  "result": "passed",
+  "temporaryVolumeRemoved": true
+}

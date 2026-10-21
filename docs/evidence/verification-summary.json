@@ -34,8 +34,24 @@
     "lastItemTotalAndTermsExtracted": true
   },
   "docker": {
-    "built": false,
-    "reason": "Sandbox cannot access Docker daemon socket"
+    "built": true,
+    "containerStarted": true,
+    "nonRootUser": "node",
+    "authenticatedHealthcheckPassed": true,
+    "chinesePdfVerified": true,
+    "restartPersistencePassed": true,
+    "recreateWithSameVolumePassed": true,
+    "composeConfigValidated": true,
+    "evidence": "docker-verification.json"
   },
-  "productionPublished": false
+  "productionPublished": false,
+  "resumedVerification": {
+    "date": "2026-10-21",
+    "unitAndApiPassed": 8,
+    "mobileEndToEndPassed": 3,
+    "lanLauncherSmokePassed": true,
+    "physicalPhoneVerified": false,
+    "publicPreviewCreated": false,
+    "dockerValidated": true
+  }
 }

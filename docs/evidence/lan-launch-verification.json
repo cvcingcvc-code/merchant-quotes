@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-21",
+  "command": "npm run demo:lan",
+  "runtime": "v24.19.0",
+  "firstRunConfigGenerated": true,
+  "passwordAbsentFromConsole": true,
+  "unauthenticatedStatus": 401,
+  "authenticatedStatus": 200,
+  "seedCustomers": 5,
+  "seedQuotes": 5,
+  "configUnchangedAfterRestart": true,
+  "quotePersistedAfterLauncherRestart": true,
+  "shortExistingPasswordRejectedWithoutOverwrite": true,
+  "browserDevice": "Not a physical-phone test"
+}
