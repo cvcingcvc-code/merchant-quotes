@@ -1,0 +1,15 @@
+{
+  "requestedOwner": "cvcingcvc-code",
+  "userProvidedRepository": "https://github.com/cvcingcvc-code/merchant-quotes",
+  "result": "passed",
+  "private": false,
+  "repository": "cvcingcvc-code/merchant-quotes",
+  "url": "https://github.com/cvcingcvc-code/merchant-quotes",
+  "branch": "main",
+  "pushedCommit": "6517a623e0ac33eed7a5ee3b62405b37a3ca1fcc",
+  "remoteCommitVerified": true,
+  "trackedFileCount": 67,
+  "sensitivePathsExcluded": true,
+  "verifiedAt": "2026-10-23T10:49:29.875026+00:00",
+  "verificationScope": "Initial source upload; subsequent commits are verified separately against remote main."
+}

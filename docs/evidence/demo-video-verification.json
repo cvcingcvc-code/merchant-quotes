@@ -1,0 +1,162 @@
+{
+  "format": "merchant-quotes-demo-video",
+  "appVersion": "1.1.0",
+  "recordedAt": "2026-10-23T10:50:22.595Z",
+  "fictionalDataOnly": true,
+  "browserMobileViewport": {
+    "width": 432,
+    "height": 720,
+    "deviceScaleFactor": 2
+  },
+  "physicalPhoneRecording": false,
+  "soundtrack": "silent; Chinese captions burned into video",
+  "checks": {
+    "automaticTotalCents": 20978,
+    "chinesePdfDownloadAndText": true,
+    "actualProcessRestart": true,
+    "restartPreservesQuoteAndFollowUp": true,
+    "backupDownloadedAndChecked": true,
+    "browserPageErrors": 0
+  },
+  "cleanup": {
+    "serverStopped": true,
+    "mediaServerStopped": true,
+    "temporaryDataRemoved": true
+  },
+  "quoteNumber": "BJ-20261023-006",
+  "result": "passed",
+  "output": {
+    "filename": "merchant-quotes-demo.mp4",
+    "bytes": 2079483,
+    "durationSeconds": 118.2,
+    "width": 1080,
+    "height": 1920,
+    "codec": "h264",
+    "pixelFormat": "yuv420p",
+    "sha256": "8714508f3bc34f26fd79ba4a9be9c955e0ee21d8811b5b08ea571bfc02c2ff9d",
+    "fullDecodePassed": true,
+    "fastStart": true,
+    "chineseCaptionsBurnedIn": true,
+    "recorderPaddingCropped": true,
+    "colorRange": "tv",
+    "fastStartVerified": true,
+    "repositoryPath": "docs/evidence/merchant-quotes-demo.mp4"
+  },
+  "timeline": [
+    {
+      "name": "开场",
+      "start": 0.0,
+      "end": 5.003,
+      "caption": "手机开报价，中文 PDF 带走"
+    },
+    {
+      "name": "工作台",
+      "start": 5.003,
+      "end": 10.003,
+      "caption": "客户、报价与跟进，一处整理"
+    },
+    {
+      "name": "新增客户",
+      "start": 10.003,
+      "end": 25.004,
+      "caption": "先记下客户资料\n下次报价直接选择"
+    },
+    {
+      "name": "新建报价",
+      "start": 25.004,
+      "end": 32.005,
+      "caption": "选好客户，开始一份报价"
+    },
+    {
+      "name": "第一项明细",
+      "start": 32.005,
+      "end": 41.005,
+      "caption": "商品、数量和单价\n输入后自动计算"
+    },
+    {
+      "name": "小数数量",
+      "start": 41.005,
+      "end": 51.005,
+      "caption": "安装服务：1.5 小时 × 100.05 元"
+    },
+    {
+      "name": "自动合计",
+      "start": 51.005,
+      "end": 57.006,
+      "caption": "59.70 + 150.08\n自动合计 ¥209.78"
+    },
+    {
+      "name": "保存与导出",
+      "start": 57.006,
+      "end": 64.007,
+      "caption": "保存报价\n一键导出中文 PDF"
+    },
+    {
+      "name": "实际导出的 PDF",
+      "start": 64.007,
+      "end": 76.009,
+      "caption": "中文抬头、明细、金额与条款\n画面来自刚下载的 PDF"
+    },
+    {
+      "name": "更新跟进",
+      "start": 76.009,
+      "end": 90.009,
+      "caption": "记录成交状态\n安排下次跟进"
+    },
+    {
+      "name": "实际重启服务",
+      "start": 90.009,
+      "end": 94.011,
+      "caption": "结束并重启本机服务\n再重新打开这份报价"
+    },
+    {
+      "name": "重启后查询",
+      "start": 94.011,
+      "end": 102.014,
+      "caption": "¥209.78、已成交、跟进备注\n重启后都能查到"
+    },
+    {
+      "name": "导出备份",
+      "start": 102.014,
+      "end": 110.016,
+      "caption": "资料可以导出备份\n请另存一份到其他设备"
+    },
+    {
+      "name": "片尾",
+      "start": 110.016,
+      "end": 118.222,
+      "caption": "简单报价 · 单商家试用演示\n可预约安装与流程演示"
+    }
+  ],
+  "rawRecording": {
+    "trimStart": 0.21800000000000352,
+    "durationSeconds": 118.222,
+    "width": 864,
+    "height": 1440
+  },
+  "pdfPreviewMethod": "The PDF actually downloaded in this run was rendered with Poppler; this is an edited video preview, not an in-app PDF viewer.",
+  "visualReview": {
+    "passed": true,
+    "checkedSeconds": [
+      2,
+      20,
+      53,
+      66,
+      69,
+      88,
+      99,
+      106,
+      114
+    ],
+    "checks": [
+      "intro and outro readable",
+      "customer card present",
+      "209.78 total visible",
+      "actual Chinese PDF including total visible",
+      "won status and follow-up history visible after restart",
+      "backup export confirmation visible",
+      "captions outside the app frame",
+      "no recorder padding visible"
+    ]
+  }
+}

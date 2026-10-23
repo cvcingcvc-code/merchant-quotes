@@ -4,6 +4,10 @@
 
 本轮交付面向首批商家试用：新增首次商家配置、安全处理示例、复制报价、主动更新单张报价资料，以及自动日备份与下载列表。建议试售价和服务边界见 [试售方案](docs/TRIAL-OFFER.md)，安装、验收、售后与回访使用 [交付单](docs/HANDOVER.md)。价格与付费意愿尚未得到市场验证，没有真实成交或收入证明。
 
+先看 [约两分钟的竖屏 Demo 视频](docs/evidence/merchant-quotes-demo.mp4)，包含真实浏览器操作、中文 PDF、跟进与实际重启验证；无声、带中文字幕，资料均为虚构。[视频制作与验收说明](docs/DEMO-VIDEO.md) · [可转发给商家的介绍文案](docs/SALES-MESSAGE.md)。
+
+<a href="docs/evidence/merchant-quotes-demo.mp4"><img src="docs/evidence/demo-video-cover.jpg" width="240" alt="简单报价演示视频封面：自动合计人民币 209.78 元"></a>
+
 ## 本地启动
 
 需要 **Node.js 24 LTS** 和 npm。在本项目目录执行：
