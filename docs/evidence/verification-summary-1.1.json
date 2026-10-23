@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-23",
+  "timezone": "Asia/Shanghai",
+  "version": "1.1.0",
+  "unitAndApi": {
+    "command": "npm test",
+    "passed": 24,
+    "failed": 0
+  },
+  "browserEndToEnd": {
+    "command": "npm run test:e2e",
+    "passed": 8,
+    "failed": 0,
+    "viewport": { "width": 390, "height": 844 },
+    "actualProcessRestart": true,
+    "expectedTotalCents": 20978,
+    "chinesePdfTextVerified": true,
+    "pdfRenderedAndVisuallyInspected": true,
+    "backupRestoreVerified": true,
+    "onboardingVerified": true,
+    "copyQuoteVerified": true,
+    "explicitSnapshotRefreshVerified": true,
+    "legacyMerchantTermsPreserved": true,
+    "inlineCustomerStaleQuoteRejected": true,
+    "pageErrors": 0
+  },
+  "dataProtection": {
+    "onlyTaggedUntouchedDemoRemoved": true,
+    "userManagedRecordsPreserved": true,
+    "setupRevisionChecked": true,
+    "backupFailurePreventsSetupChanges": true,
+    "fullClearRequiresExactConfirmation": true,
+    "v1BackupImportPreservesRecords": true,
+    "futureDatabaseVersionRejected": true,
+    "dailyBackupOncePerBeijingDay": true,
+    "dailyBackupRetentionCount": 14,
+    "safetyBackupsExcludedFromRotation": true,
+    "backupSizeLimitBytes": 8388608,
+    "backupTraversalAndSymlinksRejected": true
+  },
+  "responsiveWidths": [320, 390, 768, 1440],
+  "licensePackagesChecked": 110,
+  "dependenciesChanged": false,
+  "lastProductionAuditDate": "2026-10-21",
+  "lastProductionAuditVulnerabilities": 0,
+  "docker": {
+    "built": true,
+    "image": "merchant-quotes:trial-1.1",
+    "imageId": "sha256:6abc41a39d93f459ad76e9f39f24a86d0b37e134c577edd9fd360e86aa18b366",
+    "runtimeVerification": "passed",
+    "passedChecks": 13,
+    "nonRootUser": "node",
+    "authenticatedHealthcheckPassed": true,
+    "chinesePdfVerified": true,
+    "restartPersistencePassed": true,
+    "recreateWithSameVolumePassed": true,
+    "composeConfigValidated": true,
+    "temporaryContainerAndVolumeRemoved": true,
+    "evidence": "docker-verification-1.1.json"
+  },
+  "commercialValidation": {
+    "suggestedTrialPriceCny": 399,
+    "priceMarketValidated": false,
+    "actualPayingMerchants": 0,
+    "revenueVerified": false,
+    "physicalPhoneVerified": false,
+    "windowsMacInstallationVerified": false,
+    "productionPublished": false,
+    "cloudServicesPurchased": false,
+    "paymentIntegrated": false,
+    "realCustomerDataAccessed": false
+  }
+}

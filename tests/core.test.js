@@ -25,9 +25,10 @@ test('首次启动提供五组虚构数据，编辑客户保留历史报价快�
   const s = new Store(':memory:');
   assert.equal(s.customers().length, 5); assert.equal(s.quotes().length, 5);
   const q = s.quotes()[0], c = s.customer(q.customerId);
-  const { id, createdAt, updatedAt, ...input } = c;
+  const { id, createdAt, updatedAt, source, ...input } = c;
   s.saveCustomer({ ...input, name: '已修改名称' }, id);
   assert.equal(s.customer(id).name, '已修改名称');
+  assert.equal(s.customer(id).source, undefined);
   assert.equal(s.quote(q.id).customerSnapshot.name, c.name);
   s.close();
 });

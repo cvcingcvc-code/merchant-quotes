@@ -38,7 +38,8 @@ async function refresh() {
   render();
 }
 function heading(title, desc, action = '', label = '', eyebrow = 'YOUR BUSINESS, SIMPLIFIED') {
-  return `<div class="eyebrow">${eyebrow}</div><div class="page-heading"><div><h1>${title}</h1><p>${desc}</p></div>${action ? `<button class="button primary" data-action="${action}">${icon('plus')}${label}</button>` : ''}</div>`;
+  const welcome = state.data?.workspace && !state.data.workspace.setupCompleted ? `<section class="setup-banner"><div><strong>准备好用自己的商家信息报价了吗？</strong><p>配置报价方资料，并选择如何保留演示内容。</p></div><button class="button primary" data-action="setup">配置我的商家</button></section>` : '';
+  return `${welcome}<div class="eyebrow">${eyebrow}</div><div class="page-heading"><div><h1>${title}</h1><p>${desc}</p></div>${action ? `<button class="button primary" data-action="${action}">${icon('plus')}${label}</button>` : ''}</div>`;
 }
 function empty(title, desc, action = '', label = '') {
   return `<div class="empty-state">${icon('file')}<strong>${title}</strong><p>${desc}</p>${action ? `<button class="button primary" data-action="${action}">${icon('plus')}${label}</button>` : ''}</div>`;
@@ -59,12 +60,12 @@ function renderQuotes() {
     `<section class="stats" aria-label="报价概览">
       <div class="stat"><div class="stat-label">${icon('clock')}待回复金额</div><div class="stat-value">${money(pending.reduce((s, q) => s + q.totalCents, 0))}</div><div class="stat-caption">${pending.length} 份报价，等待好消息</div></div>
       <div class="stat"><div class="stat-label">${icon('check')}已成交金额</div><div class="stat-value">${money(won.reduce((s, q) => s + q.totalCents, 0))}</div><div class="stat-caption">${won.length} 份报价，合作已达成</div></div>
-      <div class="stat highlight"><div class="stat-label">${icon('calendar')}今日待跟进</div><div class="stat-value">${due.length}<small>位客户</small></div><div class="stat-caption">${due.length ? '一个及时的问候，离成交更近' : '今日跟进已安排妥当'}</div></div>
+      <div class="stat highlight"><div class="stat-label">${icon('calendar')}今日待跟进</div><div class="stat-value">${due.length}<small>份报价</small></div><div class="stat-caption">${due.length ? '一个及时的问候，离成交更近' : '今日跟进已安排妥当'}</div></div>
     </section>
     <section class="panel" aria-label="报价列表"><div class="panel-heading"><h2>我的报价单 <span class="count">${quotes.length}</span></h2><label class="search">${icon('search')}<input id="quote-search" aria-label="搜索报价" placeholder="搜索客户、报价名称或编号" value="${esc(state.search)}"></label></div>
     <div class="filters" role="group" aria-label="按状态筛选">${['all', 'pending', 'won', 'lost'].map(s => `<button class="filter ${state.filter === s ? 'active' : ''}" data-action="filter" data-filter="${s}">${s === 'all' ? '全部报价' : statusLabels[s]}<span>${s === 'all' ? quotes.length : quotes.filter(q => q.status === s).length}</span></button>`).join('')}</div>
     <div id="quote-results"></div></section>
-    <div class="quiet-callout">${icon('info')}首次启动内置 5 组虚构客户与报价，可用于演示。报价记录会自动保存。</div>`;
+    <div class="quiet-callout">${icon('info')}报价记录会自动保存。请定期把备份下载到另一台设备。</div>`;
   renderQuoteList();
 }
 function renderQuoteList() {
@@ -84,17 +85,25 @@ function renderCustomers() {
 function renderCustomerList() {
   const search = state.customerSearch.toLocaleLowerCase();
   const list = state.data.customers.filter(c => [c.name, c.contact, c.phone, c.email].some(v => v.toLocaleLowerCase().includes(search)));
-  $('#customer-results').innerHTML = list.length ? `<div class="customer-grid">${list.map(c => `<article class="customer-card"><div class="customer-top"><span class="avatar">${esc(c.name[0])}</span><div><h3>${esc(c.name)}</h3><small>${state.data.quotes.filter(q => q.customerId === c.id).length} 份报价</small></div></div><p>联系人 · ${esc(c.contact || '未填写')}</p><p>电话 · ${esc(c.phone || '未填写')}</p><p>${esc(c.address || '地址待完善')}</p><div class="customer-actions"><button class="button text" data-action="edit-customer" data-id="${c.id}">${icon('edit')}编辑客户</button><button class="button text" data-action="customer-quote" data-id="${c.id}">为他报价 ${icon('arrow')}</button></div></article>`).join('')}</div>` : empty('暂无匹配客户', '添加客户，保存联系方式并为他报价。', 'new-customer', '新增客户');
+  $('#customer-results').innerHTML = list.length ? `<div class="customer-grid">${list.map(c => `<article class="customer-card"><div class="customer-top"><span class="avatar">${esc(c.name[0])}</span><div><h3>${esc(c.name)}</h3><small>${c.source === 'demo' ? '示例 · ' : ''}${state.data.quotes.filter(q => q.customerId === c.id).length} 份报价</small></div></div><p>联系人 · ${esc(c.contact || '未填写')}</p><p>电话 · ${esc(c.phone || '未填写')}</p><p>${esc(c.address || '地址待完善')}</p><div class="customer-actions"><button class="button text" data-action="edit-customer" data-id="${c.id}">${icon('edit')}编辑客户</button><button class="button text" data-action="customer-quote" data-id="${c.id}">为他报价 ${icon('arrow')}</button></div></article>`).join('')}</div>` : empty('暂无匹配客户', '添加客户，保存联系方式并为他报价。', 'new-customer', '新增客户');
 }
 function renderFollowups() {
   const list = state.data.quotes.filter(q => q.status === 'pending').sort((a, b) => (a.nextFollowUp || '9999').localeCompare(b.nextFollowUp || '9999'));
   $('#main').innerHTML = heading('及时跟进，让合作发生。', '待回复的报价，按下次跟进日期排列。', '', '', 'A LITTLE FOLLOW-UP GOES A LONG WAY') +
     `<section class="panel"><div class="panel-heading"><h2>待跟进报价 <span class="count">${list.length}</span></h2><span class="form-hint">含已到期与未安排的报价</span></div>${list.length ? list.map(q => `<article class="followup-row"><div class="date-block">${q.nextFollowUp ? `${q.nextFollowUp.slice(5, 7)} 月<strong>${q.nextFollowUp.slice(8)}</strong>` : '等待<strong>安排</strong>'}</div><div class="followup-content"><h3>${esc(q.customerSnapshot.name)} · ${esc(q.title)}</h3><p>${money(q.totalCents)} ${q.nextFollowUp && q.nextFollowUp <= state.data.today ? '· 现在可以联系客户了' : ''}</p></div><button class="button" data-action="detail" data-id="${q.id}">记录跟进 ${icon('arrow')}</button></article>`).join('') : empty('所有跟进已完成', '新的待回复报价会出现在这里。')}</section>`;
 }
-const field = (name, label, value = '', options = {}) => `<div class="form-field ${options.full ? 'full' : ''}"><label for="${name}">${label}${options.required ? '<span class="required">*</span>' : ''}</label>${options.area ? `<textarea id="${name}" name="${name}" maxlength="${options.max || 400}">${esc(value)}</textarea>` : `<input id="${name}" name="${name}" value="${esc(value)}" type="${options.type || 'text'}" ${options.required ? 'required' : ''} maxlength="${options.max || 60}" ${options.placeholder ? `placeholder="${esc(options.placeholder)}"` : ''}>`}</div>`;
+const field = (name, label, value = '', options = {}) => `<div class="form-field ${options.full ? 'full' : ''}"><label for="${options.id || name}">${label}${options.required ? '<span class="required">*</span>' : ''}</label>${options.area ? `<textarea id="${options.id || name}" name="${name}" maxlength="${options.max || 400}">${esc(value)}</textarea>` : `<input id="${options.id || name}" name="${name}" value="${esc(value)}" type="${options.type || 'text'}" ${options.required ? 'required' : ''} maxlength="${options.max || 60}" ${options.placeholder ? `placeholder="${esc(options.placeholder)}"` : ''}>`}</div>`;
 function renderSettings() {
   const m = state.data.merchant;
-  $('#main').innerHTML = heading('属于你的商家工作台。', '完善商家信息，给客户一份更专业的报价。', '', '', 'MADE FOR YOUR BUSINESS') + `<div class="settings-grid"><section class="settings-card"><h2>报价方信息</h2><p>将显示在新报价的 PDF 中。已有报价保留原始信息。</p><form id="merchant-form"><div class="form-error" role="alert"></div><div class="form-grid">${field('name', '商家名称', m.name, { required: true, full: true })}${field('contact', '联系人', m.contact, { max: 40 })}${field('phone', '联系电话', m.phone, { type: 'tel', max: 40 })}${field('address', '商家地址', m.address, { full: true, max: 160 })}${field('terms', '默认合作条款', m.terms, { full: true, area: true, max: 300 })}</div><button class="button primary settings-submit" type="submit">保存商家信息</button></form></section><div><section class="settings-card"><h2>数据备份与恢复</h2><p>导出客户、报价、跟进记录和商家信息。请定期把备份保存在其他设备。</p><div class="backup-actions"><button class="button" data-action="backup">${icon('download')}导出备份</button><button class="button" data-action="choose-restore">恢复备份</button></div><input id="restore-file" type="file" accept=".json,application/json" hidden><div class="form-hint">恢复会替换现有数据。系统会先校验文件，并在服务端保留一份恢复前备份。支持本工具导出的 JSON 文件，最大 8 MB。</div></section><section class="settings-card"><h2>访问与数据</h2><div class="security-state">${icon('check')} ${state.data.passwordProtected ? '已启用商家访问密码' : '当前为本机演示模式'}</div><p>单商家版本，数据保存到服务端 SQLite。局域网或正式试用时，请按部署说明设置访问密码与 HTTPS。</p><div class="form-hint">所有内置示例均为虚构信息。无 AI API、支付、统计追踪或第三方数据连接。</div></section></div></div>`;
+  $('#main').innerHTML = heading('属于你的商家工作台。', '完善商家信息，给客户一份更专业的报价。', '', '', 'MADE FOR YOUR BUSINESS') + `<div class="settings-grid"><section class="settings-card"><h2>报价方信息</h2><p>新报价使用这里的信息。编辑旧报价时可以选择更新本单资料。</p><form id="merchant-form"><div class="form-error" role="alert"></div><div class="form-grid">${field('name', '商家名称', m.name, { required: true, full: true })}${field('contact', '联系人', m.contact, { max: 40 })}${field('phone', '联系电话', m.phone, { type: 'tel', max: 40 })}${field('address', '商家地址', m.address, { full: true, max: 160 })}${field('terms', '默认合作条款', m.terms, { full: true, area: true, max: 300 })}</div><button class="button primary settings-submit" type="submit">保存商家信息</button></form></section><div><section class="settings-card"><h2>数据备份与恢复</h2><p>导出客户、报价、跟进记录和商家信息。请每天把最新备份保存到其他设备。</p><div class="backup-actions"><button class="button" data-action="backup">${icon('download')}导出备份</button><button class="button" data-action="choose-restore">恢复备份</button></div><input id="restore-file" type="file" accept=".json,application/json" hidden><div class="form-hint">恢复会替换现有数据。系统会先校验文件，并保留恢复前备份。支持本工具 v1 / v2 的 JSON，最大 8 MB；新导出文件需要 1.1 或更高版本读取。</div><div class="section-heading"><h3>本机保留的备份</h3><button class="button text" data-action="refresh-backups">刷新列表</button></div><p class="form-hint">${state.data.backups?.enabled ? '运行期间每天首次检查时保留一份日备份，最近 14 份；当天最新资料请手动导出。关机期间不会生成。' : '日备份未启用，请手动导出。'}</p>${state.data.backups?.lastError ? '<div class="notice">自动日备份未成功，请检查电脑磁盘空间和目录权限，并联系维护人员。当前资料仍可手动导出。</div>' : ''}<div id="saved-backups" aria-live="polite">正在读取备份…</div><div class="form-hint">同一电脑上的备份用于恢复操作失误；异机副本用于设备故障后的恢复。</div></section><section class="settings-card"><h2>访问与数据</h2><div class="security-state">${icon('check')} ${state.data.passwordProtected ? '已启用商家访问密码' : '当前为本机演示模式'}</div><p>资料保存在运行该工具的电脑上。局域网或远程试用，请设置访问密码；真实远程使用需 HTTPS。</p><div class="form-hint">所有内置示例均为虚构信息。无 AI API、支付或第三方数据连接。</div></section></div></div>`;
+  loadBackupList();
+}
+async function loadBackupList() {
+  try {
+    const files = await api('/api/backups');
+    const target = $('#saved-backups'); if (!target) return;
+    target.innerHTML = files.length ? files.map(file => `<article class="backup-row"><div><strong>${file.type === 'daily' ? '每日备份' : file.type === 'before-setup' ? '商家配置前备份' : '恢复前备份'}</strong><small>${esc(new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', dateStyle: 'short', timeStyle: 'short' }).format(new Date(file.savedAt)))} · ${(file.bytes / 1024).toFixed(1)} KB</small></div><button class="button text" data-action="download-saved-backup" data-name="${esc(file.name)}">下载</button></article>`).join('') : '<p class="form-hint">暂无保留的备份。你可以随时导出当前资料。</p>';
+  } catch { if ($('#saved-backups')) $('#saved-backups').textContent = '备份列表暂时无法读取，请手动导出并检查磁盘。'; }
 }
 function openModal(title, subtitle, content, footer = '') {
   modal.innerHTML = `<header class="modal-header"><div><h2 id="modal-title">${title}</h2>${subtitle ? `<small>${esc(subtitle)}</small>` : ''}</div><button class="icon-button" data-action="close" aria-label="关闭">${icon('close')}</button></header>${content}${footer ? `<footer class="modal-footer">${footer}</footer>` : ''}`;
@@ -104,18 +113,34 @@ function openModal(title, subtitle, content, footer = '') {
 }
 function closeModal() { modal.close(); }
 modal.addEventListener('close', () => document.body.classList.remove('modal-open'));
+function showSetup() {
+  const w = state.data.workspace;
+  const hasDemo = w.removableDemoCustomers > 0 || w.removableDemoQuotes > 0;
+  const m = hasDemo ? { name: '', contact: '', phone: '', address: '', terms: '本报价以双方最终确认内容为准。' } : { ...state.data.merchant };
+  openModal('配置我的商家', '开始正式使用前，先核对你的报价资料与现有数据。', `<form id="setup-form"><div class="modal-body"><div class="form-error" role="alert"></div><div class="form-grid">${field('name', '商家名称', m.name, { id: 'setup-name', required: true, full: true })}${field('contact', '联系人', m.contact, { id: 'setup-contact', max: 40 })}${field('phone', '联系电话', m.phone, { id: 'setup-phone', type: 'tel', max: 40 })}${field('address', '商家地址', m.address, { id: 'setup-address', full: true, max: 160 })}${field('terms', '默认合作条款', m.terms, { id: 'setup-terms', full: true, area: true, max: 300 })}</div><div class="section-heading"><h3>现有客户与报价</h3><small>${w.customerCount} 位客户 / ${w.quoteCount} 份报价</small></div><div class="form-field"><label for="dataAction">开始使用时如何处理</label><select id="dataAction" name="dataAction"><option value="keep" ${hasDemo ? '' : 'selected'}>保留所有现有资料</option>${hasDemo ? `<option value="remove_demo" selected>只移除未修改的示例（${w.removableDemoCustomers} 位客户 / ${w.removableDemoQuotes} 份报价）</option>` : ''}<option value="clear_all">清空全部客户和报价，从空白开始</option></select></div><p class="form-hint">编辑过的示例和被自己报价引用的客户会保留。旧版本未标记的记录不会自动当作示例删除。保存前会在服务端保留一份备份。</p><div id="clear-confirmation" hidden><div class="notice">此选项会移除全部现有客户和报价，请先确认没有需要保留的资料。</div>${field('confirmation', '输入“清空全部客户和报价”确认', '', { max: 40, full: true })}</div></div><footer class="modal-footer"><button class="button" type="button" data-action="close">以后设置</button><button class="button primary" type="submit">保存并开始使用</button></footer></form>`);
+  $('#setup-form').dataset.revision = w.revision;
+}
+function copyQuote(id) {
+  const q = state.data.quotes.find(q => q.id === id);
+  showQuoteForm(null, q.customerId, { customerId: q.customerId, title: `${q.title}（副本）`.slice(0, 80),
+    quoteDate: state.data.today, validUntil: addDays(state.data.today, 14), nextFollowUp: '', notes: q.notes,
+    items: q.items.map(({ name, quantity, unitPrice, unit }) => ({ name, quantity, unitPrice, unit })) });
+}
 function showCustomer(id, returnToQuote = false) {
   customerReturn = returnToQuote ? { ...quoteEdit, input: readQuoteForm() } : null;
   const c = state.data.customers.find(c => c.id === id) || {};
   openModal(id ? '编辑客户' : '新增客户', '清晰的客户信息，是合作的第一步。', `<form id="customer-form" data-id="${id || ''}"><div class="modal-body"><div class="form-error" role="alert"></div><div class="form-grid">${field('name', '客户 / 公司名称', c.name, { required: true, full: true, placeholder: '如：山野咖啡' })}${field('contact', '联系人', c.contact, { max: 40 })}${field('phone', '联系电话', c.phone, { type: 'tel', max: 40 })}${field('email', '邮箱', c.email, { type: 'email', max: 120, full: true })}${field('address', '地址', c.address, { full: true, max: 160 })}${field('notes', '客户备注', c.notes, { full: true, area: true })}</div></div><footer class="modal-footer"><button class="button" type="button" data-action="close">取消</button><button class="button primary" type="submit">保存客户</button></footer></form>`);
 }
 function addDays(date, count) { return new Date(Date.parse(`${date}T12:00:00Z`) + count * 86400000).toISOString().slice(0, 10); }
-function showQuoteForm(id, customerId, input) {
+function showQuoteForm(id, customerId, input, version) {
   const old = id ? state.data.quotes.find(q => q.id === id) : null;
-  quoteEdit = { id: old?.id || null, version: old?.version };
+  quoteEdit = { id: id || null, version: version ?? old?.version };
   draft = input || (old ? { ...old, items: old.items.map(i => ({ ...i })) } : { customerId: customerId || state.data.customers[0]?.id || '', title: '', quoteDate: state.data.today, validUntil: addDays(state.data.today, 14), nextFollowUp: '', notes: '', items: [{ name: '', quantity: '1', unit: '项', unitPrice: '' }] });
   openModal(old ? '编辑报价' : '新建报价', old?.number || '把价值讲清楚，把合作向前推一步。', `<form id="quote-form"><div class="modal-body"><div class="form-error" role="alert"></div><div class="form-grid"><div class="form-field full"><div class="customer-select-label"><label for="customerId">报价客户 <span class="required">*</span></label><button type="button" data-action="inline-customer">+ 新增客户</button></div><select id="customerId" name="customerId" required><option value="">请选择客户</option>${state.data.customers.map(c => `<option value="${c.id}" ${draft.customerId === c.id ? 'selected' : ''}>${esc(c.name)}</option>`).join('')}</select></div>${field('title', '报价名称', draft.title, { full: true, required: true, max: 80, placeholder: '如：门店品牌升级方案' })}${field('quoteDate', '报价日期', draft.quoteDate, { type: 'date', required: true })}${field('validUntil', '有效期至', draft.validUntil, { type: 'date', required: true })}</div><div class="section-heading"><h3>商品与服务</h3><small>数量 × 单价，自动计算</small></div><div id="line-items"></div><button class="button text" data-action="add-item" type="button">${icon('plus')}添加一项</button><div class="total-strip"><span>报价合计（人民币）</span><strong id="quote-total" aria-live="polite">¥0.00</strong></div><div class="form-grid">${field('nextFollowUp', '下次跟进日期', draft.nextFollowUp, { type: 'date', full: true })}${field('notes', '报价说明', draft.notes, { full: true, area: true, max: 600 })}</div><p class="form-hint">单价保留 2 位小数，数量支持 3 位小数。逐项四舍五入到分后汇总。</p></div><footer class="modal-footer"><button class="button" type="button" data-action="close">取消</button><button class="button primary" type="submit">${old ? '保存修改' : '保存报价'}</button></footer></form>`);
   renderLineItems();
+  if (old) {
+    $('.form-grid', $('#quote-form')).insertAdjacentHTML('beforeend', `<fieldset class="snapshot-options form-field full"><legend>更新这张报价的资料</legend><label><input type="checkbox" name="refreshCustomerSnapshot" ${draft.refreshCustomerSnapshot ? 'checked' : ''}>使用最新客户资料</label><label><input type="checkbox" name="refreshMerchantSnapshot" ${draft.refreshMerchantSnapshot ? 'checked' : ''}>使用最新商家资料</label><p class="form-hint">默认保留原报价中的资料。勾选后仅更新本报价，其他报价不受影响。</p></fieldset>`);
+  }
 }
 function renderLineItems() {
   $('#line-items').innerHTML = draft.items.map((it, i) => `<section class="line-item" data-index="${i}"><div class="line-item-top"><span class="item-label">${String(i + 1).padStart(2, '0')}</span><input name="item-name" aria-label="第 ${i + 1} 项名称" placeholder="商品或服务名称" maxlength="80" value="${esc(it.name)}" required><button class="icon-button" data-action="remove-item" data-index="${i}" type="button" aria-label="删除第 ${i + 1} 项">${icon('close')}</button></div><div class="line-item-values"><div><label for="qty-${i}">数量</label><input id="qty-${i}" name="quantity" inputmode="decimal" maxlength="12" value="${esc(it.quantity)}" required></div><div><label for="unit-${i}">单位</label><input id="unit-${i}" name="unit" maxlength="10" value="${esc(it.unit)}"></div><div><label for="price-${i}">单价（元）</label><input id="price-${i}" name="unitPrice" inputmode="decimal" maxlength="12" value="${esc(it.unitPrice)}" placeholder="0.00" required></div><output class="line-amount" aria-label="第 ${i + 1} 项金额">—</output></div></section>`).join('');
@@ -124,7 +149,9 @@ function renderLineItems() {
 function readQuoteForm() {
   const form = $('#quote-form');
   const f = Object.fromEntries(new FormData(form));
-  return { customerId: f.customerId, title: f.title, quoteDate: f.quoteDate, validUntil: f.validUntil, nextFollowUp: f.nextFollowUp, notes: f.notes, items: [...form.querySelectorAll('.line-item')].map(row => ({ name: $('[name=item-name]', row).value, quantity: $('[name=quantity]', row).value, unit: $('[name=unit]', row).value, unitPrice: $('[name=unitPrice]', row).value })) };
+  return { customerId: f.customerId, title: f.title, quoteDate: f.quoteDate, validUntil: f.validUntil, nextFollowUp: f.nextFollowUp, notes: f.notes,
+    refreshCustomerSnapshot: f.refreshCustomerSnapshot === 'on', refreshMerchantSnapshot: f.refreshMerchantSnapshot === 'on',
+    items: [...form.querySelectorAll('.line-item')].map(row => ({ name: $('[name=item-name]', row).value, quantity: $('[name=quantity]', row).value, unit: $('[name=unit]', row).value, unitPrice: $('[name=unitPrice]', row).value })) };
 }
 function updateTotals() {
   const input = readQuoteForm();
@@ -137,7 +164,7 @@ function updateTotals() {
 }
 function showDetail(id) {
   const q = state.data.quotes.find(q => q.id === id), c = q.customerSnapshot;
-  openModal('报价详情', '一份清晰的报价，一次用心的合作。', `<div class="modal-body"><div class="detail-meta"><span class="detail-number">${q.number}</span>${pill(q.status)}</div><h3 class="detail-title">${esc(q.title)}</h3><div class="detail-parties"><div><label>报价客户</label><strong>${esc(c.name)}</strong><p>${esc([c.contact, c.phone, c.address].filter(Boolean).join('\n'))}</p></div><div><label>报价商家</label><strong>${esc(q.merchantSnapshot.name)}</strong><p>${esc([q.merchantSnapshot.contact, q.merchantSnapshot.phone].filter(Boolean).join('\n'))}</p></div></div><div class="detail-dates"><span>报价日期 ${q.quoteDate}</span><span>有效期至 ${q.validUntil}</span></div>${q.items.map(it => `<div class="detail-item"><div><strong>${esc(it.name)}</strong><small>${esc(it.quantity)} ${esc(it.unit)} × ¥${esc(it.unitPrice)}</small></div><span class="amount">${money(it.amountCents)}</span></div>`).join('')}<div class="total-strip"><span>报价合计（人民币）</span><strong>${money(q.totalCents)}</strong></div>${q.notes ? `<div class="detail-note">${esc(q.notes)}</div>` : ''}<div class="section-heading"><h3>跟进这份报价</h3><small>记录进展，不错过合作</small></div><form id="followup-form" class="followup-form" data-id="${q.id}"><div class="form-error" role="alert"></div><div class="form-grid"><div class="form-field"><label for="status">报价状态</label><select name="status" id="status">${Object.entries(statusLabels).map(([value, label]) => `<option value="${value}" ${q.status === value ? 'selected' : ''}>${label}</option>`).join('')}</select></div>${field('nextFollowUp', '下次跟进', q.nextFollowUp, { type: 'date' })}${field('note', '本次跟进记录', '', { full: true, area: true, max: 300 })}</div><button class="button primary settings-submit" type="submit">保存跟进</button></form>${q.followUps.length ? `<div class="followup-history">${q.followUps.map(f => `<div class="history-entry">${statusLabels[f.status]} <small>· ${new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', dateStyle: 'short', timeStyle: 'short' }).format(new Date(f.at))}${f.nextFollowUp ? ` · 下次 ${f.nextFollowUp}` : ''}</small>${f.note ? `<p>${esc(f.note)}</p>` : ''}</div>`).join('')}</div>` : ''}</div>`, `<button class="button" data-action="edit-quote" data-id="${q.id}">${icon('edit')}编辑报价</button><button class="button primary" data-action="pdf" data-id="${q.id}">${icon('download')}导出中文 PDF</button>`);
+  openModal('报价详情', '一份清晰的报价，一次用心的合作。', `<div class="modal-body"><div class="detail-meta"><span class="detail-number">${q.number}</span>${pill(q.status)}</div><h3 class="detail-title">${esc(q.title)}</h3><div class="detail-parties"><div><label>报价客户</label><strong>${esc(c.name)}</strong><p>${esc([c.contact, c.phone, c.address].filter(Boolean).join('\n'))}</p></div><div><label>报价商家</label><strong>${esc(q.merchantSnapshot.name)}</strong><p>${esc([q.merchantSnapshot.contact, q.merchantSnapshot.phone].filter(Boolean).join('\n'))}</p></div></div><div class="detail-dates"><span>报价日期 ${q.quoteDate}</span><span>有效期至 ${q.validUntil}</span></div>${q.items.map(it => `<div class="detail-item"><div><strong>${esc(it.name)}</strong><small>${esc(it.quantity)} ${esc(it.unit)} × ¥${esc(it.unitPrice)}</small></div><span class="amount">${money(it.amountCents)}</span></div>`).join('')}<div class="total-strip"><span>报价合计（人民币）</span><strong>${money(q.totalCents)}</strong></div>${q.notes ? `<div class="detail-note">${esc(q.notes)}</div>` : ''}<div class="section-heading"><h3>跟进这份报价</h3><small>记录进展，不错过合作</small></div><form id="followup-form" class="followup-form" data-id="${q.id}"><div class="form-error" role="alert"></div><div class="form-grid"><div class="form-field"><label for="status">报价状态</label><select name="status" id="status">${Object.entries(statusLabels).map(([value, label]) => `<option value="${value}" ${q.status === value ? 'selected' : ''}>${label}</option>`).join('')}</select></div>${field('nextFollowUp', '下次跟进', q.nextFollowUp, { type: 'date' })}${field('note', '本次跟进记录', '', { full: true, area: true, max: 300 })}</div><button class="button primary settings-submit" type="submit">保存跟进</button></form>${q.followUps.length ? `<div class="followup-history">${q.followUps.map(f => `<div class="history-entry">${statusLabels[f.status]} <small>· ${new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', dateStyle: 'short', timeStyle: 'short' }).format(new Date(f.at))}${f.nextFollowUp ? ` · 下次 ${f.nextFollowUp}` : ''}</small>${f.note ? `<p>${esc(f.note)}</p>` : ''}</div>`).join('')}</div>` : ''}</div>`, `<button class="button" data-action="copy-quote" data-id="${q.id}">${icon('plus')}复制报价</button><button class="button" data-action="edit-quote" data-id="${q.id}">${icon('edit')}编辑报价</button><button class="button primary" data-action="pdf" data-id="${q.id}">${icon('download')}导出中文 PDF</button>`);
 }
 async function download(url, filename) {
   const response = await fetch(url);
@@ -154,15 +181,20 @@ document.addEventListener('input', event => {
 });
 document.addEventListener('submit', async event => {
   const form = event.target;
-  if (!['customer-form', 'quote-form', 'merchant-form', 'followup-form'].includes(form.id)) return;
+  if (!['customer-form', 'quote-form', 'merchant-form', 'followup-form', 'setup-form'].includes(form.id)) return;
   event.preventDefault();
   const button = $('button[type=submit]', form); button.disabled = true;
   try {
-    if (form.id === 'customer-form') {
+    if (form.id === 'setup-form') {
+      const { dataAction, confirmation = '', ...merchant } = Object.fromEntries(new FormData(form));
+      await api('/api/setup', 'POST', { merchant, dataAction, confirmation, expectedRevision: form.dataset.revision });
+      state.search = ''; state.customerSearch = ''; state.filter = 'all';
+      await refresh(); closeModal(); toast('商家已配置，配置前备份已保留');
+    } else if (form.id === 'customer-form') {
       const id = form.dataset.id, returnInfo = customerReturn;
       const c = await api(`/api/customers${id ? `/${id}` : ''}`, id ? 'PUT' : 'POST', Object.fromEntries(new FormData(form)));
       await refresh();
-      if (returnInfo) showQuoteForm(returnInfo.id, c.id, { ...returnInfo.input, customerId: c.id }); else closeModal();
+      if (returnInfo) showQuoteForm(returnInfo.id, c.id, { ...returnInfo.input, customerId: c.id }, returnInfo.version); else closeModal();
       toast('客户已保存');
     } else if (form.id === 'quote-form') {
       const input = readQuoteForm(); calculateItems(input.items);
@@ -188,6 +220,8 @@ document.addEventListener('click', async event => {
     else if (action === 'customer-quote') showQuoteForm(null, id);
     else if (action === 'detail') showDetail(id);
     else if (action === 'edit-quote') showQuoteForm(id);
+    else if (action === 'copy-quote') copyQuote(id);
+    else if (action === 'setup') { await refresh(); showSetup(); }
     else if (action === 'close') closeModal();
     else if (action === 'filter') { state.filter = button.dataset.filter; renderQuotes(); }
     else if (action === 'add-item' || action === 'remove-item') {
@@ -205,6 +239,11 @@ document.addEventListener('click', async event => {
       if (action === 'pdf') { const q = state.data.quotes.find(q => q.id === id); toast('正在生成中文 PDF…'); await download(`/api/quotes/${id}/pdf`, `${q.number}-${q.customerSnapshot.name}.pdf`); }
       else await download('/api/backup', `merchant-quotes-${state.data.today}.json`);
       toast(action === 'pdf' ? 'PDF 已生成，请在浏览器下载中查看' : '备份已导出');
+    } else if (action === 'refresh-backups') await loadBackupList();
+    else if (action === 'download-saved-backup') {
+      button.disabled = true;
+      await download(`/api/backups/${encodeURIComponent(button.dataset.name)}`, button.dataset.name);
+      toast('备份已下载，可复制到其他设备保存');
     } else if (action === 'choose-restore') $('#restore-file').click();
     else if (action === 'confirm-restore') {
       button.disabled = true;
@@ -215,12 +254,19 @@ document.addEventListener('click', async event => {
   finally { button.disabled = false; }
 });
 document.addEventListener('change', async event => {
+  if (event.target.id === 'dataAction') {
+    const clearing = event.target.value === 'clear_all';
+    $('#clear-confirmation').hidden = !clearing;
+    $('#confirmation').required = clearing;
+    if (!clearing) $('#confirmation').value = '';
+    return;
+  }
   if (event.target.id !== 'restore-file') return;
   const file = event.target.files[0]; if (!file) return;
   try {
     if (file.size > 8 * 1024 * 1024) throw new Error('备份不能超过 8 MB');
     const b = JSON.parse(await file.text());
-    if (b.format !== 'merchant-quotes' || b.schemaVersion !== 1 || !Array.isArray(b.customers) || !Array.isArray(b.quotes)) throw new Error('请选择本工具导出的有效备份文件');
+    if (b.format !== 'merchant-quotes' || ![1, 2].includes(b.schemaVersion) || !Array.isArray(b.customers) || !Array.isArray(b.quotes)) throw new Error('请选择本工具导出的有效备份文件');
     restoreData = b;
     openModal('恢复数据备份', '请确认本次恢复的范围。', `<div class="modal-body"><div class="notice">此操作会替换当前全部客户、报价和商家设置。系统会在校验通过后，自动保留一份恢复前备份。</div><div class="restore-summary">文件：${esc(file.name)}<br>商家：${esc(b.merchant?.name)}<br>包含：${b.customers.length} 位客户 / ${b.quotes.length} 份报价</div><p class="form-hint">请仅恢复你有权使用的商家数据。服务端将再次完整校验备份。</p></div>`, '<button class="button" data-action="close">取消</button><button class="button primary" data-action="confirm-restore">确认替换并恢复</button>');
   } catch (error) { toast(error instanceof SyntaxError ? '文件不是有效的 JSON 备份' : error.message); }

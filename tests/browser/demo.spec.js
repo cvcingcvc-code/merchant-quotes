@@ -109,7 +109,9 @@ test('手机备份恢复：下载、改变数据、上传备份、校验状态�
   await expect(page.locator('#modal')).not.toBeVisible();
   await page.getByRole('link', { name: '报价单', exact: true }).click();
   await expect(page.locator('.quote-row')).toContainText('已成交');
-  expect(readdirSync(join(dataDir, 'backups')).length).toBe(1);
+  const backupFiles = readdirSync(join(dataDir, 'backups'));
+  expect(backupFiles.filter(name => name.startsWith('before-restore-')).length).toBe(1);
+  expect(backupFiles.some(name => name.startsWith('auto-'))).toBe(true);
   expect(errors).toEqual([]);
 });
 

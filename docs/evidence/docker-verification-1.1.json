@@ -1,0 +1,93 @@
+{
+  "format": "merchant-quotes-docker-verification",
+  "appVersion": "1.1.0",
+  "verifiedAt": "2026-10-23T03:39:54.330Z",
+  "image": {
+    "tag": "merchant-quotes:trial-1.1",
+    "id": "sha256:6abc41a39d93f459ad76e9f39f24a86d0b37e134c577edd9fd360e86aa18b366",
+    "sourceSha256": {
+      "package.json": "8d856cfbd5c4f1fee0b206bec572c15bfe49f713d4fab8e1da942487d282ee89",
+      "package-lock.json": "baa91a9d489c6c9baa20418ba666ab2bec1b247d38db7f0cb95e06e1109d2646",
+      "src/app.js": "94d23796484767dcf8ae4fc825388b0bbecfedf2f8d156e87c31529101068340",
+      "src/server.js": "86f499d9973209cdc2a1cce7c2b0d9251915445ad3e049a0edb3967d0593e0cf",
+      "src/store.js": "ebf6e1667a30a70723f3005bb5293b1e888c2a52ccfc92db63ab3666932f83aa",
+      "src/validation.js": "77c67fe69e0eee26987e3d42a29e6a5dfbe2de7866f1e643c9d0e1196f133f0b",
+      "src/backups.js": "e56f9e02c6c0a045ac5228f8e9f9e2b5f7ed08604757fd66aba0bc9feeeb06ab",
+      "src/pdf.js": "1416c5d34c345cb29ce6bd32a4af76acde280cbdb34774abe660a977f3c56f43",
+      "public/app.js": "21408a73f2044a440c8b4d221af36e7139a2ed726c82b9442f59866eea151d72",
+      "public/index.html": "3bc1b6457fec4f7cba4f08ea22a1749f3727cc0c9181eaadb74b68477b5db0b4",
+      "public/style.css": "2384579061703fd2c3215e5d2fece4e0c98aedbc3fb710dcfb476239f11bf5b3"
+    }
+  },
+  "deployment": {
+    "loopbackOnly": true,
+    "temporaryNamedVolume": true,
+    "randomPasswordViaEnvironment": true,
+    "published": false,
+    "user": "node"
+  },
+  "checks": [
+    {
+      "name": "compose configuration validates with an environment-provided password",
+      "passed": true
+    },
+    {
+      "name": "non-root container started on an ephemeral loopback port",
+      "passed": true
+    },
+    {
+      "name": "image contains the current v1.1.0 workspace source",
+      "passed": true
+    },
+    {
+      "name": "unauthenticated pages and data endpoints return 401",
+      "passed": true
+    },
+    {
+      "name": "authenticated API and the image healthcheck command succeed",
+      "passed": true
+    },
+    {
+      "name": "first boot supplies five fictional customers and five sample quotations",
+      "passed": true
+    },
+    {
+      "name": "merchant setup removes unmodified demo data and saves a safety backup",
+      "passed": true
+    },
+    {
+      "name": "customer and quotation creation calculates exactly 20978 cents",
+      "passed": true
+    },
+    {
+      "name": "container-generated PDF preserves Chinese merchant, customer, items and total",
+      "passed": true,
+      "bytes": 76909
+    },
+    {
+      "name": "follow-up status, next date and history are saved",
+      "passed": true
+    },
+    {
+      "name": "server backup listing, saved-file downloads and current export succeed",
+      "passed": true,
+      "savedTypes": [
+        "before-setup",
+        "daily"
+      ]
+    },
+    {
+      "name": "docker restart retains merchant, customer, amount, follow-up and saved backups",
+      "passed": true
+    },
+    {
+      "name": "removing and recreating the container with the same volume retains all data",
+      "passed": true
+    }
+  ],
+  "cleanup": {
+    "containerRemoved": true,
+    "volumeRemoved": true
+  },
+  "result": "passed"
+}
