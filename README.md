@@ -14,6 +14,7 @@
 
 ```bash
 npm ci
+npm run doctor
 npm start
 ```
 
@@ -21,12 +22,15 @@ npm start
 
 配置可从 `.env.example` 复制为 `.env`，`npm start` 会读取 `.env`。默认只监听本机。关闭终端服务后，再运行同一命令即可验证数据仍然存在。数据库及恢复前备份位于 `data/`，不要删除该目录。
 
+`npm run doctor` 用于 Node 安装方式的启动前检查：核对 Node.js 24、配置、数据目录权限、运行依赖、SQLite、中文 PDF 和端口。它不打开商家的客户数据库，不修改 `.env`，不创建 `data/`。发现问题时会显示中文修复建议。完整用法与检查边界见 [安装预检说明](docs/INSTALL-CHECK.md)，当前交付进度见 [PROJECT_STATUS.md](PROJECT_STATUS.md)。
+
 ## 手机局域网演示
 
 在你自己的电脑、项目目录内执行：
 
 ```bash
 npm ci
+npm run doctor
 npm run demo:lan
 ```
 

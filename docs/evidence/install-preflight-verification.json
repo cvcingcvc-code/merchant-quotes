@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-24",
+  "timezone": "Asia/Shanghai",
+  "milestone": "Node installation preflight",
+  "baselineCommit": "6bc13e4be1155b67eb30489c2bfd0380ff864ce0",
+  "sourceChecksums": {
+    "scripts/doctor.js": "b927ae3b0b56091e2bbb25f5e6d5c65a1b344c121be3126006b3c810cbe18b7e",
+    "tests/doctor.test.js": "842524945739958f56d85669bb2bdd66ea476ee9facc5ac83b381b8c3caacb31",
+    "package.json": "9136ab2ef5b616733ee2dd83650e611e5b68449fc94981fd58fde22771469ab0"
+  },
+  "isolatedSourceCopy": true,
+  "fictionalDataOnly": true,
+  "realMerchantDatabaseOpened": false,
+  "physicalPhoneVerified": false,
+  "windowsMacInstallationVerified": false,
+  "dependenciesChanged": false,
+  "productionPublished": false,
+  "startedAt": "2026-10-24T11:01:56.377Z",
+  "checks": {
+    "unitAndApi": {
+      "command": "npm test",
+      "total": 40,
+      "passed": 40,
+      "failed": 0
+    },
+    "browser": {
+      "command": "npm run test:e2e",
+      "passed": 8,
+      "failed": 0,
+      "includesActualProcessRestart": true,
+      "includesChinesePdfTextExtraction": true
+    },
+    "controlledInstallationDoctor": {
+      "ok": true,
+      "checks": [
+        {
+          "id": "node",
+          "status": "pass",
+          "message": "Node.js 主版本符合要求。"
+        },
+        {
+          "id": "config-file",
+          "status": "warn",
+          "message": "没有配置文件，将按默认值及已有环境变量预检；未创建配置文件。"
+        },
+        {
+          "id": "config",
+          "status": "pass",
+          "message": "主机、端口、示例数据开关及外部访问密码要求符合预检规则。"
+        },
+        {
+          "id": "access-mode",
+          "status": "warn",
+          "message": "当前可用于本机演示；首次运行 npm run demo:lan 会创建配置并生成访问密码。",
+          "fix": "手机演示时运行 npm run demo:lan，并在生成的 .env 中自行查看密码。"
+        },
+        {
+          "id": "data-directory",
+          "status": "pass",
+          "message": "数据目录尚未创建，最近现有父目录具备创建权限；本次未创建目录。"
+        },
+        {
+          "id": "database-permissions",
+          "status": "pass",
+          "message": "没有现有数据库文件；本次未创建或打开客户数据库。"
+        },
+        {
+          "id": "backup-directory",
+          "status": "pass",
+          "message": "备份目录尚未创建，将由应用启动时创建；本次未创建。"
+        },
+        {
+          "id": "runtime",
+          "status": "pass",
+          "message": "必要项目文件可读，服务依赖可解析；后续实际加载 SQLite 与 PDF。"
+        },
+        {
+          "id": "sqlite",
+          "status": "pass",
+          "message": "SQLite 本地模块已完成内存自检，仅使用虚构记录；未打开客户数据库。"
+        },
+        {
+          "id": "font",
+          "status": "pass",
+          "message": "内置中文字体可读取，且与本发行版的原版字体校验一致。"
+        },
+        {
+          "id": "pdf",
+          "status": "pass",
+          "message": "已使用内置字体在内存中生成虚构中文报价 PDF，并初始化服务路由；未保存文件或启动应用。"
+        },
+        {
+          "id": "port",
+          "status": "pass",
+          "message": "配置的监听地址和端口可短暂绑定，探测进程已退出；不代表手机、防火墙或公网可达。"
+        }
+      ]
+    },
+    "configurationNotCreated": true,
+    "targetDataDirectoryNotCreated": true
+  },
+  "result": "passed",
+  "finishedAt": "2026-10-24T11:02:38.577Z",
+  "temporaryValidationCopyRemoved": true
+}
